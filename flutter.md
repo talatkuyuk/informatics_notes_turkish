@@ -3,7 +3,7 @@
 
 ## Flutter Kurulumu
 
-Flutter kurulumunu Windows'ta ``C:\flutter`` adlı klasöre yaptım. 
+Flutter kurulumunu Windows'ta ``C:\flutter`` adlı klasöre yaptım.--
 Environment Variables içindeki PATH değişkenine ``C:\flutter\bin`` ekledim.
 
 
@@ -14,12 +14,11 @@ Flutter kurulurken <FLUTTER-DIRECTORY>/examples/flutter_gallery altında gelmekt
 
 ```powershell
 > cd C:\flutter\examples\flutter_gallery
-
 > flutter pub get
-
 ```
 
 Android phone debug modunda pc’ye bağla
-
+```powershell
 > flutter run –release -d <Telephone>
 > flutter run –release -d HVY0219223005212
+```
