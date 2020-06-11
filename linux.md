@@ -6,7 +6,7 @@
 
 | komut | işlevi |
 | ----- | ------ |
-| pwd   | bulunulan klasörü gösterir |
+| pwd   | bulunulan klasörü gösterir ``bash pwd ``|
 
 $ pwd	bulunulan klasörü gösterir
 $ ls	dosyaları listeler
