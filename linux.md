@@ -2,7 +2,11 @@
 
 > Linux: Linux is not Unix
  
-## Linux Komutaları
+## Linux Komutları
+
+| komut | işlevi |
+| ----- | ------ |
+| pwd   | bulunulan klasörü gösterir |
 
 $ pwd	bulunulan klasörü gösterir
 $ ls	dosyaları listeler
