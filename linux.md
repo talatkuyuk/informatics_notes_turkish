@@ -1,7 +1,7 @@
 # Linux Notları
 
-### Linux: Linux is not Unix
-
+> ### Linux: Linux is not Unix
+ 
 ## Linux Komutaları
 
 $ pwd	bulunulan klasörü gösterir
