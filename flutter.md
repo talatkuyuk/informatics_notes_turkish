@@ -49,9 +49,11 @@ Windows'ta kurulu bu JDK için Environment Variable'ların olduğunu kontrol ede
 > distributionUrl=https\://services.gradle.org/distributions/gradle-6.3-all.zip
 
 Tüm bu ayarlamaları yaptıktan sonra CMD komut satırında flutter projesinin android klasörüne gidelim,
+```powershell
 > cd c:\path-to\your-flutter-project-folder\android\ 
+```
 
 Komut satırına aşağıdaki komutu yazalım, bu komut gerekli tüm servisler için SHA-1'leri ve diğer bilgileri ekrana raporlayacaktır.
 ```powershell
-gradlew signingReport
+> gradlew signingReport
 ```
