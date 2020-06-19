@@ -1,4 +1,4 @@
-Sizlerin bazı temel web teknolileri konularında TEMEL bilgiye sahip olmanızı istiyorum.
+Profesör ve Mühendis, Sizlerin bazı temel web teknolileri konularında TEMEL bilgiye sahip olmanızı istiyorum.
 
 # TEMEL PROGRAMLAMA BECERİSİ
 Algoritma kurma, Object Oriented, Asyncronous, Future/Promise, Stream, Http Request, File handling konuları düzeyinde bilgi sahibi olmamız gerekir. **Kural:** *BİR DİLİ ÇOK İYİ BİL*
@@ -49,7 +49,7 @@ Basit bir uygulama yapabilecek düzeyde bilgiye sahip olunması gerekir.
 
 
 # DATABASE BİLGİSİ
-Basit bir uygulamada query/sorgu/CRUD işlemelri yapabilecek düzeyde bilgiye sahip olunması gerekir.
+Basit bir uygulamada query/sorgu/CRUD işlemleri yapabilecek düzeyde bilgiye sahip olunması gerekir.
 +  Relational Database :
    +  SQL
    +  Herhangi bir veritabanı: MySQL, PostgreSQL, SQL Server vb.
