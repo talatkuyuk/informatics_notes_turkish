@@ -44,6 +44,7 @@ Windows'ta kurulu bu JDK için Environment Variable'ların olduğunu kontrol ede
 > JAVA_HOME olarak C:\Program Files\Java\jdk-14.0.1<br>
 > JAVA_BIN olarak C:\Program Files\Java\jdk-14.0.1\bin<br>
 > JAVA_LIB olarak C:\Program Files\Java\jdk-14.0.1\lib<br>
+> PATH değişkenine mevcutlara ilave olarak C:\Program Files\Java\jdk-14.0.1\bin<br>
 
 "c:\path-to\your-flutter-project-folder\android\gradle\wrapper\gradle-wrapper.properties" dosyasındaki distributionUrl'nin uyumlu gradle olmasını sağlayalım.
 > distributionUrl=https\://services.gradle.org/distributions/gradle-6.3-all.zip
@@ -57,3 +58,49 @@ Komut satırına aşağıdaki komutu yazalım, bu komut gerekli tüm servisler i
 ```powershell
 > gradlew signingReport
 ```
+
+Komut satırına aşağıdaki de yazılırsa SHA-1'i direkt verecektir.
+```powershell
+> keytool -list -v -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore
+```
+Release için SHA-1 ise, android studio'da jks dosyası oluşturuluyor, sonra komut satırında,
+```powershell
+> keytool -exportcert -list -v -alias <your-key-name> -keystore <path-to-production-keystore>
+> keytool -list -v -alias releasekey -keystore C:\MyCodeRepo\fluttergithubprojects\xinthink_flt_keep\releaseKey.jks
+```
+
+
+Firebase console'da proje dosyası açılır, Ayarlarda SHA-1 girilir ve kaydedilir.
+Güncül google-services.json dosyası indirilir, flutter project içinde Andoid içindeki app klaörüne yüklenir.
+c:\path-to\your-flutter-project-folder\android\app\
+
+
+You are probably missing npm in your path. You can check it by echo %PATH% to make sure. Thus, open Environmental variables > system variables > path
+see if you could not find C:\Users\yourusername\AppData\Roaming\npm there. 
+
+
+firebase login
+Firebase CLI ile firebase sistemine bağlantı sağlamış oluruz.
+
+firebase init
+Flutter projesinin ana klasöründe iken bu komut ile projemize firebase CLI entegre edilmiş olur.
+Seçerken use existing project seçip, sadece functionları seçtik ve typescript seçtik.
+Ana klasörümüze firebase.json ve .firebaserc oluşmuş olur.
+At the end of initialization, Firebase automatically creates the following two files at the root of your local app directory:
+A firebase.json configuration file that lists your project configuration.
+A .firebaserc file that stores your project aliases.
+
+
+firebase deploy --only functions
+functions klasörü içindeki src'de varsa index.ts'yi js'e çevirip functions içine koyar ve firebase functions'a deploy eder.
+
+firebase projects:list
+
+# Deploy new function called webhookNew
+$ firebase deploy --only functions:webhookNew
+
+# Wait until deployment is done; now both webhookNew and webhook are running
+
+# Delete webhook
+$ firebase functions:delete webhook
+
