@@ -12,9 +12,15 @@ Temel ve kendi küçük işlerimizi halledebileceğimiz kadar, veya büyük bir 
 Statik Web Page Yapımı
 + HTML 5 : https://www.w3schools.com/html/
 + CSS 3 : https://www.w3schools.com/css/default.asp
-+ JavaScript : https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript https://www.w3schools.com/js/default.asp
-+ JQuery : https://https://jquery.com/ https://www.w3schools.com/jquery/default.asp
-+ BootStrap : https://getbootstrap.com/docs/4.5/getting-started/introduction/ https://www.w3schools.com/bootstrap4/default.asp
++ JavaScript : 
+  + https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript 
+  + https://www.w3schools.com/js/default.asp
++ JQuery : 
+  + https://jquery.com/ 
+  + https://www.w3schools.com/jquery/default.asp
++ BootStrap : 
+  + https://getbootstrap.com/docs/4.5/getting-started/introduction/ 
+  + https://www.w3schools.com/bootstrap4/default.asp
 
 ### 
 Dynamic ve Statik Web Application Yapımı
