@@ -58,3 +58,9 @@ Basit bir uygulamada query/sorgu/CRUD işlemleri yapabilecek düzeyde bilgiye sa
    +  Json
    +  Firebase FireStore
    +  MongoDB
+
+
+# İLAVE KABİLİYETLER
+
++ MarkDown: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
++ 
