@@ -104,3 +104,4 @@ $ firebase deploy --only functions:webhookNew
 # Delete webhook
 $ firebase functions:delete webhook
 
+My personal taste: InheritedWidget/Provider + ValueNotifier/ChangeNotifier + sealedclass (freezed) + BLoC (although this violates BLoC rules). This is a solid approach I don't have any obstacles with this approach so far.
