@@ -33,9 +33,31 @@ Bu şekilde yaratırsan en başta hoş olur, sonra değiştirmesi zor oluyor. Ö
 > flutter create --org com.ipikuka shopping_list
 ```
 
-Fluuter projede dependency'leri görmek için:
+Flutter projede dependency'leri görmek için:
 ```powershell
 > flutter pub deps
+```
+
+Flutter kanal bilgisini görmek için:
+```powershell
+> flutter channel
+```
+
+Flutter kanalı değiştirmek için: stable, beta, dev, and master
+```powershell
+> flutter channel <channel-name>
+> flutter channel dev
+> flutter channel stable
+```
+
+To identify out-of-date package dependencies and get advice on how to update them, use the outdated command
+```powershell
+> flutter pub outdated
+```
+
+To update to the latest compatible versions of all the dependencies listed in the pubspec.yaml file
+```powershell
+> flutter pub upgrade
 ```
 
 ## Flutter Projesi için SHA-1 keyi tespit etmek

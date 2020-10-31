@@ -3,7 +3,7 @@
 
 ## React App Oluşturulması
 ```powershell
-> npx create-react-app acedemind_hook_example1
+> npx create-react-app project_name
 ```
 Bu komut bulunulan klaörün içinde React Application oluşturur ve projeye ait bir klasör yaratır.
 
@@ -19,16 +19,22 @@ Güzel bir başlangıç noktası: [Academind Tutorial](https://academind.com/lea
 > npm start
 ```
 
-## React App kurmadan sıfır bir projede package.json oluşturmak için
-```powershell
-> npm init
+## JSX
+```javascript
+import React from "react"
+import './App.css';
+
+const name = "ipikuka"
+
+const App = () => {
+    return <div>Hello {name} </div>;
+}
+export default App
 ```
 
 ## Firebase'i projeye eklemek ve package.json'a kaydetmek için
 ```powershell
 > npm install --save firebase
-Bir eklemeyi kendim yapmamı istedi:
-> npm install google-auth-library
 ```
 
 ## Firebase'i projeye eklemek için
