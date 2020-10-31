@@ -17,3 +17,6 @@
 | $ sudo ifconfig eth1 up | İlgili network adater.i up eder. |
 | $ sudo dhclient | Up edilen network adatere IP tahsis eder. |
 | $ sudo –s | araştır bak. |
+| $ printenv | Environment Değişkenlerini Listeler |
+| $ export | Environment Değişkenlerini Listeler |
+
