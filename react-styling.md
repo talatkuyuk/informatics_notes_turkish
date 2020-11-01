@@ -78,7 +78,7 @@ const Button = styled.button`
   padding: 0.25em 1em;
 `
 ```
-Bu styled butona parametre gönderebiliyoruz. Bu parametreleri **props** ile alıyoruz, backtick içinde olduğumuz için javascript komutlarını **${}** içinde kullanıyoruz. ```${props => javascript command for props.something```. Bu javascript içinde tekrar css property'leri belirtmek için de styled paketinde yer alan css fonksiyonunu **css``** kullanıyoruz.
+Bu styled butona parametre gönderebiliyoruz. Bu parametreleri **props** ile alıyoruz, backtick içinde olduğumuz için javascript komutlarını **${}** içinde kullanıyoruz. ```${props => javascript command for props.something}```. Bu javascript içinde tekrar css property'leri belirtmek için de styled paketinde yer alan css fonksiyonunu **css``** kullanıyoruz.
 ```javascript
 import styled, { css } from 'styled-components'
 
