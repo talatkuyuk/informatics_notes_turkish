@@ -1,9 +1,12 @@
 # Styling React Components (React Component'lere Style Verme) Notları
-React Component'lere pek çok stil verme yöntemi bulunmaktadır. Bunlardan üç tanesi ön plana çıkmaktadır.
+React Component'lere pek çok stil verme yöntemi bulunmaktadır. 
 + in-line styling
 + bir css dosyası import etme
 + styled-components paketini kullanma
 + module.css yöntemi
++ bootstarap paketi *(buraya dahil edilmedi)*
++ tailwind paketi *(buraya dahil edilmedi)*
++ *ve diğerleri v.b.*
 
 
 ## In-line styling
@@ -51,6 +54,7 @@ const App = () => {
 + in-line styling basit bir kullanım ortaya sunar ama bazı dezavantajları vardır:
     + Css'nin doğal olarak sunduğu cascading özelliğinden faydalanamayız. Yani örneğin button DOM objesi için üst component'lerde tanımlanan bir stili alt componentlerde yer alan bir button için kullanamamış oluruz.
     + Pseudo elements ve pseudo selector'leri (örneğin :hover gibi) kullanamayız.
+    + Media Query kullanamayız.
     + JSX kodu içinde yani bir javascript kodu içerisinde css görmek kodumuzu şişirebilir.
 +   Eğer, basit bir sayfa, uygulama yapılacaksa, pseudo selector vb. kullanılmayacaksa in-line styling tercih edilebilir, ama proje karmaşıklaştıkça sıkıntı yaratır. 
 
@@ -71,6 +75,7 @@ const Button = props => {
 + Bu sayede JSX içinde css kodları yer almamış olur.
 + Ancak burada javascript, css kodunu gerçekte import etmez, react ile beraber çalışan webpack eklentisi sayesinde css kodu uygun şekilde render edilen html sayfası içine enjekte edilir, yerleştirilir.
 + Css dosyasında yukarıda olduğu gibi genel bir type/tag seçici kullanılırsa (button), aynı sayfada render edilen ne kadar component varsa, bunlardaki buttonlar da etkilenir, hatta bu componentlerdeki buttonlar için bir stil belirtilmemiş olsa bile etkilenirler. Dolayısıyla bu componente özel bir css yazmış olmayız. Bu nedenle en azından class property'sini kullanmamız gerekir. 
++ Javascript dilinde **class** kelimesi reserved olduğundan class property için **className** property ismi kullanılılmaktadır. ```<Button className="primaryButton" ...```
 ```javascript
 // Button.css
 .primaryButton { color: white; }
@@ -95,7 +100,7 @@ Söz konusu ```styled-components``` paketini kullanmak için paketi install edel
 Söz konusu paketi projemize dahil edelim:
 > import styled from 'styled-components'
 
-Bir styled button yaratalım. Burada <styled.button> paket içerisinde JSX komutları üreten bir fonksiyondur, button tipinde DOM objesi yaratmaktadır. İki backtick ise javascript'e ait bir feature olan <attack template> adında kullanımdır. Bu sayede fonksiyona template literal gönderilmekte, javascript bunu ve içindeki interpolation string'leri <${}> pars etmekte,  ve fonksiyonu öyle çağırmaktadır.
+Bir styled button yaratalım. Burada <styled.button> paket içerisinde JSX komutları üreten bir fonksiyondur, button tipinde DOM objesi yaratmaktadır. İki backtick ise javascript'e ait bir feature olan <tagged template literal> adında kullanımdır. Bu sayede fonksiyona template literal gönderilmekte, javascript bunu ve içindeki interpolation string'leri **${}** pars etmekte ve fonksiyonu öyle çağırmaktadır.
 ```javascript
 const Button = styled.button``
 ```
@@ -119,11 +124,12 @@ import styled, { css } from 'styled-components'
 
 const Button = styled.button`
   background: transparent;
-  border-radius: 3px;
   border: 2px solid palevioletred;
   color: palevioletred;
   margin: 0.5em 1em;
   padding: 0.25em 1em;
+
+  border-radius: ${props => props.primary ? "3px" : "2px"};
 
   ${props => props.primary && css`
     background: palevioletred;
@@ -148,26 +154,41 @@ render(
 );
 ```
 + App render edilip html source'a bakıldığında <button class="sc-bDDvas ErkjjY"> şeklinde sınıflar yaratıldığını, bu sınıflara ait css tanımlamalarında (html head içerisinde) girdiğimiz ilgli css parametrelerini görürüz.
-+ styled-components bize esneklik sunmaktadır.
-+ styled içinde psuedo selector'leri normal css'de olduğu gibi hatta scss'ye benzeyen nested yapıda kullanabilmekteyiz.
-+ yaratılan styled component programın her yerinde aynı şekilde kullanılabilmektedir. Örnek styled bir paragraph yaratalım, başka bir dosyada import ederek kullanalım.
++ styled-components bize esneklik ve dinamiklik sunmaktadır.
++ styled component içinde css'yi olduğu gibi  kullanabilmekteyiz. (Media Query, psuedo selectors, pseudo elements vb. normal css'de olduğu gibi hatta scss'ye benzeyen nested yapıda)
++ styled component içinde  de kullanabilmekteyiz.
++ yaratılan styled component programın her yerinde aynı şekilde kullanılabilmektedir. 
+
+Örnek styled bir paragraph yaratalım, başka bir dosyada import ederek kullanalım.
 ```javascript
 import styled from "styled-components"
 const StyledParagraph = styled.p`
   color: $aaa;
+
+  > strong {
+    font-weight: bold;
+  }
+
+  @media (min-width: 760px) {
+    color: $fff;
+
+    > strong {
+        font-weight: normal;
+    }
+  }
 `
 export default StyledParagraph;
 
 import StyledParagraph from "path-to-StyledParagraph"
 const MyComponent = () {
     return (
-        <StyledParagraph> My Color is #aaa </StyledParagraph>
+        <StyledParagraph> My Color is <strong> mine </strong> </StyledParagraph>
     )
 }
 ```
 
 ## module.css yöntemi
-Bir css dosyası yaratılıp, component'e import edilmesinin, diğer componentleri etkileyebileceğini söylemiştik.
+Bir css dosyası yaratılıp, component'e (JSX dosyasına) import edilmesinin, diğer componentleri etkileyebileceğini söylemiştik.
 İşte buna çözüm olarak, yani css dosyasının o componente özel olmasını sağlamak için **module.css** yöntemi kullanılmaktadır.
 ```javascript
 // Button.module.css
@@ -180,7 +201,8 @@ const Button = props => {
     return <Button className={classes.primaryButton} onClick={props.onClick}>{props.children}</Button>
 }
 ```
-+ Normal css import ile ```import from "./Button.css"```, module.css kullanıldığında import ```import classes from "./Button.module.css"```arasındaki değişikliğe dikkat.
-+ Button içindeki className kullanımına dikkat. Normal css kullanıldığında ```className="primaryButton"```, ama module.css kullanıldığında ```className={classes.primaryButton}```
-+ css dosyası içindeki button genel bir tag seçici olsa bile, module.css sayesinde bu componente özel olarak kalabilmektedir.
-+ React ile beraber çalışan webpack eklentisi, build aşamasında bu module.css dosyalarını özel bir işlemden geçirerek, birbirinden farklı class veya id numaraları vererek burada yazılı css kodlarının bu componente özel olmasını sağlamaktadır.
++ Normal css dosyası için kullanılan ```import from "./Button.css"``` ile, module.css kullanıldığında ```import classes from "./Button.module.css"```arasındaki değişikliğe dikkat.
++ Normal css kullanıldığında Button içinde ```className="primaryButton"``` kullanımı ile, module.css kullanıldığında ```className={classes.primaryButton}``` kullanımına dikkat.
++ css dosyası içindeki .primaryClass sınıf adı diğer css dosyalarında olsa bile, module.css sayesinde bu componente özel olarak kalabilmektedir. (class isimleri burada case sensitive'dir yani büyük küçük harfe duyarlıdır.)
++ React ile beraber çalışan webpack eklentisi, build aşamasında bu module.css dosyalarını özel bir işlemden geçirerek, classları farklı isimlendirerek (örneğin *.Button_primaryButton__2Ce79* gibi) burada yazılı css sınıflarının bu componente özel olmasını sağlamaktadır.
++ Eğer bir css dosyasının componente özel olmasını istiyorsak **module.css** yöntemini, componente özel değil tüm web sayfasına hakim olmasını istiyorsak **normal css import** yöntemini kullanmamız uygun olacaktır.
