@@ -199,7 +199,7 @@ const Link = styled.a.attrs(props=>{
 const MyApp = () => {
     return (
         <>
-            // Link'te target prop'unu yazmaya gerek kalmadı.
+            <!--  Link'te target prop'unu yazmaya gerek kalmadı. -->
             <Link href="www.gooogle.com">
                 Link to google
             </Link> 
@@ -243,7 +243,36 @@ const SuperStyledButton = styled(StyledButton)`
 `
 ```
 
+## Theming with styled-component
 
+Öncelikle bütün projeyi ya da web application'ı etkilemesini istediğimiz css'yi yaratalım. (css reset olayı). Styled component paketi bunun için **createGlobalStyle** fonksiyonu sağlamaktadır.
+```javascript
+// GlobalStyle.js
+import { createGlobalStyle } from "styled-components"
+const GlobalStyle = createGlobalStyle`
+  html {
+    height: 100%;
+  }
+  * {
+    padding: 0;
+    margin: 0;
+  }
+`
+export default GlobalStyle
+
+// index.js
+...
+import GlobalStyle from "./theme/GlobalStyle"
+const root = document.getElementById("root")
+...
+ReactDOM.render (
+  <>
+    <GlobalStyle />
+    <App />
+  </>,
+  root
+)
+```
 
 Styled Components paketi bize bir **Theme Provider** sunmaktadır. Theme Provider, bir react context API sağlamakta ve theme objesini etki alanındaki tüm componentlere ulaştırmaktadır. Dolayısıyla örneğin **HeaderText** componenti **theme** bilgisine ulaşabilmektedir.
 ```javascript
@@ -269,6 +298,51 @@ import styled from "styled-components"
 const HeaderText = styled.h1`
   font-family: ${props => props.theme.font};
 `
+```
+
+
+Theme objesini başka bir dosyada oluşturup import edebiliriz.
+```javascript
+// theme.js
+export default {
+  colors: {
+    main: "#aaa",
+    dark: "#aaa",
+    light: "#aaa",
+    lighter: "#aaa",
+    text: "#aaa",
+    link: "#aaa",
+  },
+  fontSizes: {
+    small: "1rem",
+    medium: "2rem",
+    big: "3rem",
+  },
+  mediaQueries: {
+    "below-768": "only screen and (max-width: 768px)",
+  }
+}
+
+// App.js
+import Theme from "./theme/theme"
+export default () => {
+    <ThemeProvider theme={Theme}>
+        <Wrapper>
+            <HeaderText>I am the Header</HeaderText>
+            <p>My Name is {name}</p>
+        </Wrapper>
+    </ThemeProvider>
+}
+
+// HeaderText.js, forexample
+import styled from "styled-components"
+const HeaderText = styled.h1`
+  color: ${props => props.theme.colors.dark};
+  @media ${props => props.theme.mediaQueries["below-768"]} {  // dash olduğu için []
+    color: ${props => props.theme.colors.light};
+  }
+`
+
 ```
 
 + Birden fazla **theme** objesi yaratabiliriz. Theme objesinin içerisinde css attribute şeklinde key'ler kullanmak zorunda değiliz. ThemeProvider'ın sağladığı theme propunu ilgili styled component içinde ```props.theme.anyKey``` şeklinde karşılamamız gerekir.

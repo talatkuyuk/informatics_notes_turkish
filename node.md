@@ -44,3 +44,9 @@ https://www.gencayyildiz.com/blog/node-js-cors-paketiyle-access-control-allow-or
 ```powershell
 > npx create-react-app firebase-react-auth
 ```
+
+i   install
+-g  global
+-D  --save-dev
+-y  all yes
+-v  version
