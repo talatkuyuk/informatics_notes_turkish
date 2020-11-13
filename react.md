@@ -4,6 +4,7 @@
 ## React App Oluşturulması
 ```powershell
 > npx create-react-app project_name
+> npx create-react-app project_name --template redux
 ```
 Bu komut bulunulan klaörün içinde React Application oluşturur ve projeye ait bir klasör yaratır.
 

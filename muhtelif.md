@@ -15,3 +15,13 @@ Formspree
 flickr
 
 https://jakearchibald.github.io/svgomg/
+loading.io/css
+undraw.io
+
+**Animasyon patern fonksiyonu**
+https://cubic-bezier.com/
+
+**Easing functions**
+https://easings.net
+
+https://fontawesome.com
