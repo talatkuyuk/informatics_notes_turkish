@@ -20,3 +20,12 @@
 | $ printenv | Environment Değişkenlerini Listeler |
 | $ export | Environment Değişkenlerini Listeler |
 
+directory yaratır ve içine girer
+mkdir mydirectory && $_
+
+index.html ve index.js yaratır (bash race extension)
+touch index.{html, js}
+
+Visual studio codu açar.
+code .
+

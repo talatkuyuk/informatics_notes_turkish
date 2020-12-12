@@ -60,6 +60,11 @@ To update to the latest compatible versions of all the dependencies listed in th
 > flutter pub upgrade
 ```
 
+Lisansları kabul etmek için
+```powershell
+flutter doctor --android-licences
+```
+
 ## Flutter Projesi için SHA-1 keyi tespit etmek
 Öncelikle bilgisayarda [Java SE Development Kit 14](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) kurulu olması gerekiyor.
 Windows'ta kurulu bu JDK için Environment Variable'ların olduğunu kontrol edelim, yoksa Kullanıcı için değişkenler bölümüne ekleyelim. (JDK'nın kurulu olduğu klasör ne ise onu dikkate alalım)
