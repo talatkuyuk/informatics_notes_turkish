@@ -4,7 +4,13 @@
 ## React App Oluşturulması
 ```powershell
 > npx create-react-app project_name
+
+> npx create-react-app project_name --template [template-name]
 > npx create-react-app project_name --template redux
+
+dene bu ikisini
+> npx create-react-app project_name --template cra-template-so-toolkit
+> npx create-react-app project_name --template cra-template-so-riridux
 ```
 Bu komut bulunulan klaörün içinde React Application oluşturur ve projeye ait bir klasör yaratır.
 
@@ -41,3 +47,21 @@ export default App
 ## Firebase'i projeye eklemek için
 Web Setup İşlemleri için [kendi sitesi](https://firebase.google.com/docs/web/setup).
 Örnek bir [code labaratuvarı]().
+
+**Removing Unused React Imports**
+```powershell
+cd your_project
+npx react-codemod update-react-imports
+```
+
+
+npm i react react-dom redux react-redux @reduxjs/toolkit
+
+
+## production server yaratma
+--------------
+npx serve (dist içindeyken)
+npx serve foldername
+npx serve dist
+
+npx http-server [path] [options]
