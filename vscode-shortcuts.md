@@ -39,3 +39,5 @@ Shift Mouse             Satır seçer
 Shift Control Mouse     Bölge seçer
 
 Option Click            İmleç ekler
+
+CMD + Shift + P -> Format Document (Prettier)
