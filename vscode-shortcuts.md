@@ -1,8 +1,9 @@
 
-Shift Command P         Command Palette (Komutları gösterir) (pencerede > işareti silinerek dosya moduna geçilebilir)
-Command P               Command Palette (Dosyaları gösterir) (pencerede > işareti koyarak komut moduna geçilebilir)
+Command P               Command Palette (Dosyaları gösterir) (> işareti koyarak komut moduna geçilebilir)
+Shift Command P         Command Palette (Komutları gösterir) (> işareti silinerek dosya moduna geçilebilir)
 
 Command O               Open
+
 Command S               Save
 Option Command S        Save All
 
@@ -24,8 +25,15 @@ New File => directory_name/file_name.extension      Yeni klasör oluşturup içi
 
 Command                 Tuşa basılı tutulursa ilgili değişken/fonksiyona tıklandığında tanımlandığı yere gidilir.
 
-Option Ok               Bulunulan satırı ya da seçili satırları bir alta veya üste taşır.
-Shift Option Ok         Bulunulan satırdan ya da seçili satırlardan bir kopya yaratıp alta veya üste basar.
+Option Up               Bulunulan satırı ya da seçili satırları bir üste taşır.
+Option Down             Bulunulan satırı ya da seçili satırları bir alta taşır.
+Option Right            Bulunulan kelimenin sonuna gider
+Option Left             Bulunulan kelimenin başına gider   
+
+Shift Option Up         Bulunulan veya seçili satırlardan bir kopya alta basar, cursor bulunduğu satırda kalır.
+Shift Option Down       Bulunulan veya seçili satırlardan bir kopya alta basar, cursor aşağıya iner.
+Shift Option Right      Cursor'dan itibaren kelimenin sonuna kadar seçer, devamında sonraki kelimeleri seçer.
+Shift Option Left       Cursor'dan itibaren kelimenin başına kadar seçer, devamında önceki kelimeleri seçer.
 
 Command Enter           Alta boş bir satır ekler ve boş satıra geçer
 Shift Command Enter     Üste boş bir satır ekler ve boş satıra geçer
@@ -35,9 +43,10 @@ Command Shift K         Cursorun olduğu satırı siler
 
 Command D               Cursorun olduğu kelimeyi seçer, daha bastıkça aynı kelimeleri seçmeye devam eder 
 
-Shift Mouse             Satır seçer
-Shift Control Mouse     Bölge seçer
+Shift Mouse             Cursor'un olduğu yerden tıklanan yere kadar olan tüm karakterleri seçer
+Shift Option Mouse      Cursor'un olduğu yerden tıklanan yere kadar diktörtgen içinde kalan bölgeyi seçer
 
 Option Click            İmleç ekler
 
 CMD + Shift + P -> Format Document (Prettier)
+
