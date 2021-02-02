@@ -17,6 +17,11 @@ if (userNumber === randomNumber)
 
 // Alert and template literal
 alert(`Dice: ${result.randomNumber}: you got ${result.points} points`);
+
+// Returns capitalized verison of a parameter.
+const capitalize = function (value) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+}
 ```
 
 

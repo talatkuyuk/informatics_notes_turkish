@@ -9,10 +9,12 @@ Strapi
 ## Form Services
 Formspree
 
-
+## Online Editor
+https://repl.it/languages/javascript
 
 # Image Services
 flickr
+splash
 
 https://jakearchibald.github.io/svgomg/
 loading.io/css
@@ -39,3 +41,15 @@ https://restcountries.eu/rest/v2/all
 https://templates.netlify.app
 
 https://book.pythontips.com/en/latest/
+
+
+### Fake or Free APIs
+Mirage JS
+SWAPI
+JSONPlaceholder
+REQRES
+Ricky and Morty
+SpaceX Land
+
+
+placekitten.com
