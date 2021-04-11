@@ -16,7 +16,8 @@ https://scottspence.com/
 ## gatsby quick start adımları
 [Quick Start](https://www.gatsbyjs.org/docs/quick-start/)
 
-> gatsby new gatsby-site
+> gatsby new gatsby-site  
+default bu starter kullanır: https://github.com/gatsbyjs/gatsby-starter-default.git
 
 > cd gatsby-site
 
