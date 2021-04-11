@@ -2,8 +2,6 @@ cors paketi için güzel bir anlatım.
 
 https://www.gencayyildiz.com/blog/node-js-cors-paketiyle-access-control-allow-origin-guvenlik-yonetimi/
 
-nodejs güncellemek için yeniden kurmak gereiyor. Bu arada npm de güncelleniyor.
-
 ## node.js ve npm versiyonunu görmek için
 ```powershell
 > node -v
@@ -48,7 +46,23 @@ npm list --depth=0
 ```powershell
 > npm install --save paket
 > npm install --save-dev paket
+> npm i paket
+```
+
+## globale paket yüklemek için
+```powershell
+> npm install -g paket
 > npm i -g paket
+```
+
+## paket kaldırmak için
+```powershell
+> npm uninstall paket
+```
+
+## paketi globalden kaldırmak için
+```powershell
+> npm uninstall -g paket
 ```
 
 ## Bir paketi yüklemeden çalıştırmak için
@@ -56,27 +70,36 @@ npm list --depth=0
 > npx create-react-app firebase-react-auth
 ```
 
-i   install
--g  global
--D  --save-dev
--y  all yes
--v  version
+i   install  
+-g  global  
+-D  --save-dev  
+-y  all yes  
+-v  version  
+
+## npm global paketlerinin yerini öğrenmek için
+$ npm config get prefix
+burasının bin'inde /bin
 
 ## install node on MacOS
 https://medium.com/@hayasnc/how-to-install-nodejs-and-npm-on-mac-using-homebrew-b33780287d8f
 
-Brew var mı kontrol:
-$ brew -v
+Brew var mı kontrol:  
+$ brew -v  
 
-Brew yoksa brew kurulumu:
+Brew yoksa brew kurulumu:  
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-$ brew install node
+$ brew install node  
 
-$ node -v
-$ node --version
-$ npm -v
-$ npm --version
+$ node -v  
+$ node --version  
+$ npm -v  
+$ npm --version  
+
+## upgrade node on MacOS
+brew update  
+brew upgrade node
+brew link --overwrite node 
 
 
 ## uninstall node from MacOS

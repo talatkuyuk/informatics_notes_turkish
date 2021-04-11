@@ -53,3 +53,7 @@ SpaceX Land
 
 
 placekitten.com
+
+https://excalidraw.com
+
+https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
