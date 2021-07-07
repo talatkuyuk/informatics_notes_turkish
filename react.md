@@ -6,7 +6,8 @@
 > npx create-react-app project_name
 
 > npx create-react-app project_name --template [template-name]
-> npx create-react-app project_name --template redux
+> npx create-react-app project_name --template clean-cra // test ve servisworkerın kaldırılmış hali
+> npx create-react-app project_name --template redux   // redux-toolkit kullanıyor
 
 dene bu ikisini
 > npx create-react-app project_name --template cra-template-so-toolkit
