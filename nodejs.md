@@ -25,7 +25,7 @@ https://www.gencayyildiz.com/blog/node-js-cors-paketiyle-access-control-allow-or
 
 ## paketlerin yeni versiyonları çıkanlarını görmek için
 ```powershell
-> npm outdated
+> npm outdated  // wanted ve latest alanları gösteriliyor
 ```
 ## Sistemde global olarak kurulu paketleri görmek için 
 ```powershell
@@ -41,12 +41,16 @@ npm list --depth=0
 ```powershell
 > npm update
 ```
+wanted versiyonuna yükseltir, ama öncesinde packege.json dosyasında versiyon numaralarını wanted versiyonları olacak şekilde kendin yaz, öbür türlü json dosyasına kaydetmedi, ama aslında outdated olanlarını update etmişti.
+
 
 ## paket yüklemek için
 ```powershell
-> npm install --save paket
-> npm install --save-dev paket
 > npm i paket
+> npm install --save paket
+
+> npm install --save-dev paket
+> npm install --D paket
 ```
 
 ## globale paket yüklemek için
