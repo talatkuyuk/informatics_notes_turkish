@@ -1,9 +1,55 @@
+Mottos
+The changes that are committed are those that have been added to the index (staged changes)
+
 
 # Renaming the Local master branch to main
 $ git branch -m master main
 
 
+# Push a branch to remote
+$ git checkout <branch>
+$ git push -u origin <branch>
+veya
+$ git checkout <branch>
+$ git push -u origin HEAD
 
+
+# git reset SOFT, MIXED, HARD
+Let's assume there are A, B, C, and D commits.
+*A - B - C - D <- HEAD  ---   A - B - C - D <- INDEX*
+
+**Soft: If you would want to B, C, and D are in one commit**
+$ git reset --soft Ref-A
+$ git reset --soft HEAD~3 (in this example)
+*A <- HEAD  ---  A - (B - C - D) <- INDEX*
+Soft reset pretends to the changes are staged (index matches D) and you haven't did commit, so you can:
+$ git commit -m "new commit message"
+*A - E <- HEAD  ---  A - E <- INDEX*
+
+**Mixed: If you would want to B, C, and D are in two or more commits**
+$ git reset --mixed Ref-A  it is default, and same with ($ git reset Ref-A)
+$ git reset --mixed HEAD~3 (in this example)
+*A <- HEAD  ---  A <- INDEX  --- but changes in B, C and D are still as it is
+Mixed reset pretends to the changes are even not staged (index matches HEAD)  and you haven't did commit, so you can:
+$ git add -> $ git commit in a different grouping, either one, two or more
+
+**Hard: If you would want to B, C, and D are removed completely with all changes**
+$ git reset --hard Ref-A
+$ git reset --hard HEAD~3 (in this example)
+*A <- HEAD  ---  A <- INDEX  --- all changes in B, C, D are completely removed
+Hard reset pretends to you did not any changes after A.
+
+**Hard: If you would want to B, C, and D are in different branch stemming from A**
+$ git branch new_branch
+then now, you can do hard reset
+$ git reset --hard A
+*A <- HEAD  ---  A <- INDEX  --- all changes in B, C, D are completely removed but the commits A,B,C,D are in the new_branch*
+You should always run git status before doing a hard reset to make sure your working directory is clean or that you're okay with losing your uncommitted changes. Anyway, you can recover any committed changes with the reflog; uncommitted changes that are removed with reset --hard are gone forever. 
+
+**As a Summary**
+--soft	: 	HEAD moves to the Ref, changes are left staged (in index).
+--mixed	:	HEAD moves to the Ref, unstage changes (extracted from index), changes are left in working tree.
+--hard	: 	HEAD moves to the Ref, unstage changes (extracted from index), delete the changes as well as any uncommitted changes
 
 
 # Changing the Last Commit Pushed or not Pushed
@@ -25,6 +71,23 @@ $ git rebase -i HEAD~5
 *For each chosen commit, a new text editor window will open. Change the commit message, save the file, and close the editor.*  
 Force push the changes to the remote repository  
 $ git push --force <remoteName> <branchName>
+
+
+
+
+
+# Get remote adress, get, add and set:
+
+### to see remote repo address
+$ git remote -v
+$ git remote -v origin
+
+### to add remote address to git for the directory
+$ git remote add origin git-url-address.git
+
+### to set new remote address for the directory
+$ git remote set-url origin git-url-address.git
+
 
 
 
