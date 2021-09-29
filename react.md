@@ -3,7 +3,11 @@
 
 ## React App Oluşturulması
 ```powershell
+# project_name adında klasör oluşturur
 > npx create-react-app project_name
+
+# eğer zaten proje klasörü içinde isek
+> npx create-react-app ./
 
 > npx create-react-app project_name --template [template-name]
 > npx create-react-app project_name --template clean-cra // test ve servisworkerın kaldırılmış hali
@@ -55,7 +59,7 @@ cd your_project
 npx react-codemod update-react-imports
 ```
 
-
+## react wşth redux-toolkit
 npm i react react-dom redux react-redux @reduxjs/toolkit
 
 
@@ -66,3 +70,7 @@ npx serve foldername
 npx serve dist
 
 npx http-server [path] [options]
+
+
+## kısa yollar (ES7 React/Redux/GraphQL/RN snippets extension)
+rafce   react arrow function component export
