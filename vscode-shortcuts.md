@@ -1,14 +1,16 @@
+## Vscode shortcuts
 
-Command P               Command Palette (Dosyaları gösterir) (> işareti koyarak komut moduna geçilebilir)
-Shift Command P         Command Palette (Komutları gösterir) (> işareti silinerek dosya moduna geçilebilir)
 
-Command O               Open
+**Command P**               Command Palette (Dosyaları gösterir) (> işareti koyarak komut moduna geçilebilir)
+**Shift Command P**         Command Palette (Komutları gösterir) (> işareti silinerek dosya moduna geçilebilir)
 
-Command S               Save
-Option Command S        Save All
+**Command O**               Open
 
-Command Z               Geri Al
-Shift Command Z         Redo
+*Command S*               Save
+*Option Command S*        Save All
+
+> command Z               Geri Al
+> Shift Command Z         Redo
 
 Shift Option F          Dokümanı Format eder düzenler.
 Shift Option O          importları düzenler.
