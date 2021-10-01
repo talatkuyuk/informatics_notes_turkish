@@ -3,13 +3,13 @@
 **User Snippets**		```Code > Preferences > User Snippets```  |  ```Shift Command P => snippets```  
 **New dir and file** 	New File => directory_name/file_name.extension  
 
-**F2 (MacOS -> Fn F2)**	Cursor üzerindeki ismi tüm dokümanda ve import edildiği dosyalarda değiştirir.  
-**Control `(Tilda)**	Terminali açar (İngilizce klavyede, türkçe Q klavyede bulamadım)  
-**Command + click**		Tuşa basılı tutup ilgili değişken/fonksiyona tıklandığında tanımlandığı yere gider.  
+**F2 (MacOS -> Fn F2)**|Cursor üzerindeki ismi tüm dokümanda ve import edildiği dosyalarda değiştirir.  
+**Control `(Tilda)**|Terminali açar (İngilizce klavyede, türkçe Q klavyede bulamadım)  
+**Command + click**|Tuşa basılı tutup ilgili değişken/fonksiyona tıklandığında tanımlandığı yere gider.  
 
-**CMD + Shift + P**		Format Document (Prettier)  
-**Shift Option F**		Dokümanı Format eder düzenler.  
-**Shift Option O**		importları düzenler.  
+**CMD + Shift + P**|Format Document (Prettier)  
+**Shift Option F**|Dokümanı Format eder düzenler.  
+**Shift Option O**|importları düzenler.  
 
 **Command P**			Command Palette (Dosyaları gösterir) (> işareti koyarak komut moduna geçilebilir)  
 **Shift Command P**		Command Palette (Komutları gösterir) (> işareti silinerek dosya moduna geçilebilir)  
