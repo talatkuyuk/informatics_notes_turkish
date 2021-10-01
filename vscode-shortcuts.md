@@ -3,6 +3,9 @@
 **User Snippets**		```Code > Preferences > User Snippets```  |  ```Shift Command P => snippets```  
 **New dir and file** 	New File => directory_name/file_name.extension  
 
+| Tables        | Are           | Cool  |
+|:------------- |:-------------:| -----:|
+
 **F2 (MacOS -> Fn F2)**|Cursor üzerindeki ismi tüm dokümanda ve import edildiği dosyalarda değiştirir.  
 **Control `(Tilda)**|Terminali açar (İngilizce klavyede, türkçe Q klavyede bulamadım)  
 **Command + click**|Tuşa basılı tutup ilgili değişken/fonksiyona tıklandığında tanımlandığı yere gider.  
