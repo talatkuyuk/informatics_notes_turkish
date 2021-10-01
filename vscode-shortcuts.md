@@ -6,10 +6,10 @@
 | Tables        | Are           | Cool  |
 |:------------- |:-------------:| -----:|
 
-Amount | Items
-------:|:-----
+
     20 | Wooden Boards
      5 | Old Parts
+
 
 | Tables        | Are           | Cool  |
 |:------------- |:-------------:| -----:|
