@@ -3,10 +3,9 @@
 **User Snippets**		```Code > Preferences > User Snippets```  |  ```Shift Command P => snippets```  
 **New dir and file** 	New File => directory_name/file_name.extension  
 
+kgjdlfgkj     | jndfgkjdgfkj
+fklglkfjgh    | kjfhdgkjhdfgkjh
 
-
-    20 | Wooden Boards
-     5 | Old Parts
 
 
 | Tables        | Are           | Cool  |
