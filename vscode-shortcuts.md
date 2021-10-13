@@ -3,21 +3,9 @@
 **User Snippets**		```Code > Preferences > User Snippets```  |  ```Shift Command P => snippets```  
 **New dir and file** 	New File => directory_name/file_name.extension  
 
-kgjdlfgkj     | jndfgkjdgfkj
-fklglkfjgh    | kjfhdgkjhdfgkjh
-
-
-
-| Tables        | Are           | Cool  |
-|:------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| col 1 is      | left-aligned  |   $42 |
-| zebra stripes | are neat      |    $1 |
-
-```**F2 (MacOS -> Fn F2)**		```	|Cursor üzerindeki ismi tüm dokümanda ve import edildiği dosyalarda değiştirir.  
-**Control `(Tilda)**	|Terminali açar (İngilizce klavyede, türkçe Q klavyede bulamadım)  
-**Command + click**		|Tuşa basılı tutup ilgili değişken/fonksiyona tıklandığında tanımlandığı yere gider.  
+```**F2 (MacOS -> Fn F2)**|Cursor üzerindeki ismi tüm dokümanda ve import edildiği dosyalarda değiştirir.  
+**Control `(Tilda)**|Terminali açar (İngilizce klavyede, türkçe Q klavyede bulamadım)  
+**Command + click**|Tuşa basılı tutup ilgili değişken/fonksiyona tıklandığında tanımlandığı yere gider.  
 
 **CMD + Shift + P**|Format Document (Prettier)  
 **Shift Option F**|Dokümanı Format eder düzenler.  
