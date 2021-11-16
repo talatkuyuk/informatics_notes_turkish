@@ -87,12 +87,6 @@ burasının bin'inde /bin
 ## install node on MacOS
 https://medium.com/@hayasnc/how-to-install-nodejs-and-npm-on-mac-using-homebrew-b33780287d8f
 
-Brew var mı kontrol:  
-$ brew -v  
-
-Brew yoksa brew kurulumu:  
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
 $ brew install node  
 
 $ node -v  
@@ -101,9 +95,9 @@ $ npm -v
 $ npm --version  
 
 ## upgrade node on MacOS
-brew update  
-brew upgrade node
-brew link --overwrite node 
+$ brew update  
+$ brew upgrade node
+$ brew link --overwrite node 
 
 
 ## uninstall node from MacOS
@@ -121,7 +115,7 @@ sudo rm -rf /opt/local/include/node /opt/local/bin/node /opt/local/lib/node
 sudo rm -rf /usr/local/share/doc/node
 sudo rm -rf /usr/local/share/systemtap/tapset/node.stp
 
-brew uninstall node
-brew doctor
-brew cleanup --prune-prefix
+$ brew uninstall node
+$ brew doctor
+$ brew cleanup --prune-prefix
 ########################################################

@@ -122,3 +122,11 @@ px = pixel
 em = 
 rem = relative 
 fr = fraction
+
+
+Use **em** for media queries.
+https://zellwk.com/blog/media-query-units/
+
+Don't use **em** for media queries
+https://adamwathan.me/dont-use-em-for-media-queries/
+
