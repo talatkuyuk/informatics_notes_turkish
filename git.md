@@ -1,6 +1,6 @@
 # Mottos
 The changes that are committed are those that have been added to the index (staged changes)
-
+Frequently rebase your feature branch to make process of resolving conflict easier in the future. (diverged commits between the main and the feature branches)
 
 
 
@@ -229,7 +229,7 @@ $ git commit -m "message"
 
 ## Step 2 
 ### Remove all the files in the repository.
-$ git rm -r --cached
+$ git rm -r --cached <file>
 *adding -cached allow us to remove the files from the index. Our files are still present*
 
 ## Step 3

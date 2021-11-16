@@ -89,3 +89,20 @@ fetch("https://jsonplaceholder.typicode.com/todos/1")
 const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
 const data = await res.json();
 ```
+
+```javascript
+function handleData(data) {
+	var url = 'https://localhost:5500/response.html';
+	var formString = `<form action="${url}" method="POST"><input type="text" name="api_url" value="${JSON.stringify(data)}" target='_blank'></form>`;
+	var form = stringToEl(formString)
+	document.body.appendChild(form);
+	form.submit();
+}
+
+function stringToEl(string) {
+    var parser = new DOMParser(),
+    content = 'text/html',
+    DOM = parser.parseFromString(string, content);
+    return DOM.body.childNodes[0];
+}
+```
