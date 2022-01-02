@@ -47,3 +47,5 @@
 
 **Option Click**		İmleç ekler.  
 
+
+Type and select: Preferences: Configure Language Specific Settings... (command: workbench.action.configureLanguageBasedSettings)

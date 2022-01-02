@@ -1,5 +1,3 @@
-
-Tab yaparak snippet kullanabiliriz.
 !
 div
 div.item
@@ -8,3 +6,4 @@ div.item
 item.item${$}*20
 lorem50
 #root
+div > span*2 + img
