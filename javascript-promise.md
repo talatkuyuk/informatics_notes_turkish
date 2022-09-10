@@ -17,7 +17,7 @@ const myBirthday = (isSick) => {
 
 myBirthday(false)
   .then((result) => {
-    console.log(`I have ${result} cakes`); // In the console: I have 2 cakes  
+    console.log(`I have >{result} cakes`); // In the console: I have 2 cakes
   })
   .catch((error) => {
     console.log(error); // Does not run
@@ -34,28 +34,31 @@ const enterNumber = () => {
   return new Promise((resolve, reject) => {
     const userNumber = Number(window.prompt("Enter a number (1 - 6):")); // Ask the user to enter a number
     const randomNumber = Math.floor(Math.random() * 6 + 1); // Pick a random number between 1 and 6
-    
+
     // If the user enters a value that is not a number, run reject with an error
     if (isNaN(userNumber)) {
-      reject(new Error("Wrong Input Type")); 
+      reject(new Error("Wrong Input Type"));
     }
 
     // If the user's number matches the random number, return 2 points
-    if (userNumber === randomNumber) { 
+    if (userNumber === randomNumber) {
       resolve({
         points: 2,
         randomNumber,
       });
-    
-    // If the user's number is different than the random number by 1, return 1 point
-    } else if (userNumber === randomNumber - 1 || userNumber === randomNumber + 1) { 
+
+      // If the user's number is different than the random number by 1, return 1 point
+    } else if (
+      userNumber === randomNumber - 1 ||
+      userNumber === randomNumber + 1
+    ) {
       resolve({
         points: 1,
         randomNumber,
       });
-    
-    // Else return 0 points
-    } else { 
+
+      // Else return 0 points
+    } else {
       resolve({
         points: 0,
         randomNumber,
@@ -67,7 +70,7 @@ const enterNumber = () => {
 const continueGame = () => {
   return new Promise((resolve) => {
     // Ask if the user want to continue the game with a confirm modal
-    if (window.confirm("Do you want to continue?")) { 
+    if (window.confirm("Do you want to continue?")) {
       resolve(true);
     } else {
       resolve(false);
@@ -77,14 +80,16 @@ const continueGame = () => {
 
 // option 2
 const continueGame = () => {
-  return new Promise((resolve) => resolve(window.confirm("Do you want to continue?")));
+  return new Promise((resolve) =>
+    resolve(window.confirm("Do you want to continue?"))
+  );
 };
 
 const handleGuess = async () => {
   try {
     const result = await enterNumber(); // Instead of the then method, we can get the result directly by just putting await before the promise
 
-    alert(`Dice: ${result.randomNumber}: you got ${result.points} points`);
+    alert(`Dice: >{result.randomNumber}: you got >{result.points} points`);
 
     const isContinuing = await continueGame();
 
@@ -93,7 +98,8 @@ const handleGuess = async () => {
     } else {
       alert("Game ends");
     }
-  } catch (error) { // Instead of catch method, we can use the try, catch syntax
+  } catch (error) {
+    // Instead of catch method, we can use the try, catch syntax
     alert(error);
   }
 };
@@ -105,28 +111,28 @@ handleGuess(); // Run handleGuess function
 
 ```javascript
 const fetchData = async () => {
-    // fetch() returns a promise, so we need to wait for it
-    const res = await fetch("https://restcountries.eu/rest/v2/alpha/col"); 
+  // fetch() returns a promise, so we need to wait for it
+  const res = await fetch("https://restcountries.eu/rest/v2/alpha/col");
 
-    // res is now only an HTTP response, so we need to call res.json()
-    const country = await res.json(); 
+  // res is now only an HTTP response, so we need to call res.json()
+  const country = await res.json();
 
-    console.log(country); // Columbia's data will be logged to the dev console
+  console.log(country); // Columbia's data will be logged to the dev console
 };
 
 fetchData();
 ```
-
 
 ### Promise.all Async, Await (Fetch a country's neighboring countries)
 
 ```javascript
 const fetchCountry = async (alpha3Code) => {
   try {
-    const res = await fetch(`https://restcountries.eu/rest/v2/alpha/${alpha3Code}`);
+    const res = await fetch(
+      `https://restcountries.eu/rest/v2/alpha/>{alpha3Code}`
+    );
     const data = await res.json();
     return data;
-    
   } catch (error) {
     console.log(error);
   }

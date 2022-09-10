@@ -1,28 +1,33 @@
 # Kotlin Notları
 
 ### comment line
+
 ```kotlin
 // This a a comment.
 
 ```
 
 ### print
+
 ```kotlin
 println("Happy Birthday, Rover!")
-println("You are already ${age}!")
+println("You are already >{age}!")
 
 ```
 
 ### variables
+
 ```kotlin
 val age = 5   // set once
 var age = 5   // can change later
 
 ```
+
 > val: A variable declared as val can only be set once and not changeable.
 > var: You can declare a changeable variable with the var keyword.
 
 ### function
+
 ```kotlin
 fun main() {}
 
@@ -59,11 +64,12 @@ fun printCakeBottom(age: Int, layers: Int) {
             print("@")
         }
         println()
-    }    
+    }
 }
 ```
 
 ### class
+
 ```kotlin
 class Dice {
     var sides = 6
@@ -83,17 +89,17 @@ fun main() {
     myFirstDice.roll1()
     myFirstDice.sides = 10;
     val diceRoll = myFirstDice.roll2()
-    println("Your ${myFirstDice.sides} sided dice rolled ${diceRoll}!")
+    println("Your >{myFirstDice.sides} sided dice rolled >{diceRoll}!")
 }
 
 
 fun main() {
     val myFirstDice = Dice(6)
     val diceRoll = myFirstDice.roll()
-    println("Your ${myFirstDice.numSides} sided dice rolled ${diceRoll}!")
-    
+    println("Your >{myFirstDice.numSides} sided dice rolled >{diceRoll}!")
+
     val mySecondDice = Dice(20)
-    println("Your ${mySecondDice.numSides} sided dice rolled ${mySecondDice.roll()}!")
+    println("Your >{mySecondDice.numSides} sided dice rolled >{mySecondDice.roll()}!")
 }
 
 class Dice (val numSides: Int) {
@@ -125,22 +131,24 @@ class Dice (val numSides: Int) {
 - When it assigns an object to a variable, Kotlin doesn't copy the entire object each time, it saves a reference to the object. You can think of a reference as being like a Social Security number or other national ID number: the number refers to a person, but it isn't the person itself. When you copy the number, you don't copy the person.
 - If enabling auto imports didn't work, Button will be highlighted in red. You can manually add the correct import by putting the text cursor within the word Button, then pressing Alt+Enter (Option+Enter on a Mac).
 - Use setImageResource() to change the image that's displayed in an ImageView
-- 
+-
 ```
 
 [kotlin vocabulary](https://codelabs.developers.google.com/codelabs/basic-android-kotlin-training-vocab/)
 
 They are the same. Kotlin interpret firs as second.
+
 ```kotlin
 val diceRange = 1..6
 val diceRange: IntRange = 1..6
 val randomNumber = diceRange.random()
-println("Random number: ${randomNumber}")
+println("Random number: >{randomNumber}")
 ```
 
 [Kotlin Style Guide for Android Developers](https://developer.android.com/kotlin/style-guide)
 
 General form of if-else:
+
 ```kotlin
 if (condition-is-true) {
 
@@ -170,5 +178,3 @@ matches-value -> execute-this-code
 
 }
 ```
-
-
