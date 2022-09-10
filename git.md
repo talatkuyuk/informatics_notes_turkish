@@ -5,11 +5,11 @@
 - The changes that are committed are those that have been added to the index (staged changes)
 - Frequently rebase your feature branch to make process of resolving conflict easier in the future. (diverged commits between the main and the feature branches)
 
-# Renaming the Local master branch to main
+### Renaming the Local master branch to main
 
 > git branch -m master main
 
-# Creating empty commit
+### Creating empty commit
 
 > git commit --allow-empty -m "Upgrading to heroku-22"
 
@@ -36,18 +36,22 @@
 ### create newbranch and track origin/xbranch
 
 > git checkout -b newbranch origin/xbranch
-> _(new local branch has different name with tracked remote branch)_
+
+_(new local branch has different name with tracked remote branch)_
 
 ### create a branch with the same name in remote repo
 
 > git checkout --track origin/xbranch
-> _(new local branch has the same name with tracked remote branch)_
+
+_(new local branch has the same name with tracked remote branch)_
 
 ### Push a branch to remote
 
 > git checkout <branch>
 > git push -u origin <branch>
-> _or_
+
+or
+
 > git checkout <branch>
 > git push -u origin HEAD
 
@@ -55,10 +59,19 @@
 
 ### Go to a specific commit state
 
-> git checkout a1b2c3 _you can use a commit hash_  
-> git checkout v2.0.0 _you can use a tag name_  
-> git checkout tags/v2.0.0 _you can use a tag name either with /tags prefix_  
-> _now we are in a state known as "detached HEAD", don't make any new commit here_
+_you can use a commit hash_
+
+> git checkout a1b2c3
+
+_you can use a tag name_
+
+> git checkout v2.0.0
+
+_you can use a tag name either with /tags prefix_
+
+> git checkout tags/v2.0.0
+
+_now we are in a state known as "detached HEAD", don't make any new commit here_
 
 ### Go back to main or master
 
@@ -67,7 +80,9 @@
 ### Add an alias with command parameters in global
 
 > git config --global alias.amend 'commit --amend --no-edit'
-> Then, use like below:
+
+Then, use like below:
+
 > git amend
 
 ### git reset SOFT, MIXED, HARD
