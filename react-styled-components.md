@@ -1,35 +1,41 @@
 ## Styled Components (styled-components)
+
 Styled Components, React component eko sistemi içerisinde css'nin esnek ve dinamik şekilde kullanılmasını sağlayan bir pakettir.
 
 **Resourse:** https://styled-components.com
 
 **styled-components** paketinin kurulması:
+
 > npm install --save styled-components
 
 **styled-components** paketinin projeye dahil edilmesi:
+
 > import styled from 'styled-components'
 
 styled-components paketi, CSS syntax'ının JSX içerisinde yer almasını sağlayan ve HTML elemanlarını yaratan JSX kodlarını üreten fonksiyonlar içermektedir. Örneğin:
+
 ```javascript
-styled.button
-styled.p
-styled.img
-styled.css
+styled.button;
+styled.p;
+styled.img;
+styled.css;
 ```
 
 Bu fonksiyonlar, parametrelerini **function()** şeklinde değil **function``** şeklinde almaktadır.
+
 ```javascript
-styled.button``
-styled.p``
-styled.img``
-styled.css``
+styled.button``;
+styled.p``;
+styled.img``;
+styled.css``;
 ```
 
-İki backtick <Tagged Template Literal> adında javascript'e ait bir ES6 feature'dur.  Bu sayede fonksiyona <template literal> gönderilmekte, javascript bunu ve içindeki *interpolation*'ları pars etmekte ve fonksiyonu öyle çağırmaktadır. *Bactick içinde **${}** kullanımı*
+İki backtick <Tagged Template Literal> adında javascript'e ait bir ES6 feature'dur. Bu sayede fonksiyona <template literal> gönderilmekte, javascript bunu ve içindeki _interpolation_'ları pars etmekte ve fonksiyonu öyle çağırmaktadır. _Bactick içinde **>{}** kullanımı_
 
-> *Tagged Template Literal içinde javascript interpolation:* string içinde javascript kodu olmasıdır. javascript kodu ${} içinde yazılır, ancak string normal tırnak değil backtick içinde olmalıdır. Örnek : `This string includes some interpolations: ${key} ve ${()=> a+b;} `
+> _Tagged Template Literal içinde javascript interpolation:_ string içinde javascript kodu olmasıdır. javascript kodu >{} içinde yazılır, ancak string normal tırnak değil backtick içinde olmalıdır. Örnek : `This string includes some interpolations: >{key} ve >{()=> a+b;} `
 
-Örneğin aşağıda <styled.button> bir fonksiyondur, button tipinde DOM objesi yaratan JSX kodu üretmektedir. Bu button'un stilini backtick içerisinde belirteceğiz. *Dikkat: css property'leri normal css dosyasında olduğu gibi aynen belirtebiliyoruz. (Tırnaklar yok, sonunda noktalı virgüller var.)*
+Örneğin aşağıda <styled.button> bir fonksiyondur, button tipinde DOM objesi yaratan JSX kodu üretmektedir. Bu button'un stilini backtick içerisinde belirteceğiz. _Dikkat: css property'leri normal css dosyasında olduğu gibi aynen belirtebiliyoruz. (Tırnaklar yok, sonunda noktalı virgüller var.)_
+
 ```javascript
 const Button = styled.button`
   background: transparent;
@@ -38,11 +44,13 @@ const Button = styled.button`
   color: palevioletred;
   margin: 0 1em;
   padding: 0.25em 1em;
-`
+`;
 ```
-Bu styled butona parametre gönderebiliyoruz. Bu parametreleri **props** ile alıyoruz, backtick içinde olduğumuz için javascript komutlarını **${}** içinde kullanıyoruz (interpolation). ```${props => javascript command for props.something}```. Bu javascript içinde tekrar css property'leri belirtmek için de styled paketinde yer alan css fonksiyonunu **css``** kullanıyoruz.
+
+Bu styled butona parametre gönderebiliyoruz. Bu parametreleri **props** ile alıyoruz, backtick içinde olduğumuz için javascript komutlarını **>{}** içinde kullanıyoruz (interpolation). `>{props => javascript command for props.something}`. Bu javascript içinde tekrar css property'leri belirtmek için de styled paketinde yer alan css fonksiyonunu **css``** kullanıyoruz.
 
 Aşağıdaki örnekte styled bir button ve styled div oluşturulmuştur.
+
 ```javascript
 import styled, { css, keyframes } from 'styled-components'
 const fadeIn = keyframes`
@@ -53,15 +61,15 @@ const Button = styled.button`
   background: transparent;
   border: 2px solid palevioletred;
   color: palevioletred;
-  margin: ${props => props.margin || "2rem"};
+  margin: >{props => props.margin || "2rem"};
   padding: 0.25em 1em;
 
-  border-radius: ${props => props.primary ? "3px" : "2px"}; // yöntem-1: props
-  border-radius: ${{primary} => primary ? "3px" : "2px"}; // yöntem-2: destruction
+  border-radius: >{props => props.primary ? "3px" : "2px"}; // yöntem-1: props
+  border-radius: >{{primary} => primary ? "3px" : "2px"}; // yöntem-2: destruction
 
-  animation: 2s ${fadeIn} ease-in;
+  animation: 2s >{fadeIn} ease-in;
 
-  ${props => props.primary && css`
+  >{props => props.primary && css`
     background: palevioletred;
     color: white;
   `}
@@ -72,7 +80,7 @@ const Button = styled.button`
   }
 
   // diğer styled componenti etkileme
-  ${Container}:hover {
+  >{Container}:hover {
       color: red;
   }
 `;
@@ -81,7 +89,7 @@ const Container = styled.div`
   text-align: center;
 
   // diğer styled componenti etkileme
-  &:hover ${Button} {
+  &:hover >{Button} {
       color: red;
   }
 `
@@ -93,18 +101,19 @@ render(
   </Container>
 );
 ```
-+ App render edilip html source'a bakıldığında <button class="sc-bDDvas ErkjjY"> şeklinde sınıflar yaratıldığını, bu sınıflara ait css tanımlamalarında (html head içerisinde) girdiğimiz ilgli css parametrelerini görürüz.
-+ styled-components bize esneklik sunmaktadır.
-+ styled içinde psuedo selector'leri normal css'de olduğu gibi hatta scss'ye benzeyen nested yapıda kullanabilmekteyiz.
-+ yaratılan styled component, import edildiği programın her yerinde aynı şekilde kullanılabilmektedir. 
 
+- App render edilip html source'a bakıldığında <button class="sc-bDDvas ErkjjY"> şeklinde sınıflar yaratıldığını, bu sınıflara ait css tanımlamalarında (html head içerisinde) girdiğimiz ilgli css parametrelerini görürüz.
+- styled-components bize esneklik sunmaktadır.
+- styled içinde psuedo selector'leri normal css'de olduğu gibi hatta scss'ye benzeyen nested yapıda kullanabilmekteyiz.
+- yaratılan styled component, import edildiği programın her yerinde aynı şekilde kullanılabilmektedir.
 
 Örnek bir styled paragraph yaratalım, başka bir dosyada import ederek kullanalım.
+
 ```javascript
 // StyledParagraph.js
 import styled from "styled-components"
 const StyledParagraph = styled.p`
-  color: $aaa;
+  color: >aaa;
 `
 export default StyledParagraph;
 // main.js
@@ -117,6 +126,7 @@ const MyComponent = () {
 ```
 
 Örnek bir styled div yaratalım, başka bir dosyada import ederek kullanalım.
+
 ```javascript
 // Wrapper.js
 import styled from "styled-components"
@@ -146,6 +156,7 @@ const MyComponent = () {
 ```
 
 Styled Fonksiyonu ve Component aynı dosyada da yer alabilir.
+
 ```javascript
 // App.js
 import styled from "styled-components"
@@ -163,13 +174,14 @@ const MyComponent = () {
 ```
 
 Örnek bir styled component daha:
+
 ```javascript
 // Button.js
 import React from "react"
 import styled from "styled-components"
 const StyledButton = styled.button`
   font-size: 2rem;
-  color: ${props => props.primary ? "red" : "#fff"}; 
+  color: >{props => props.primary ? "red" : "#fff"};
 `
 const Button = ({ children, primary}) {
     return (
@@ -186,7 +198,8 @@ import Button from "path-to-Button"
 ```
 
 **attrs fonksiyonu**
-Örneğin styled bir a DOM objesi oluşturan Link isminde bir styled component yaratalım. Bütün a'lar target="_blank" ise bunu Link'e taşıyabiliriz. 
+Örneğin styled bir a DOM objesi oluşturan Link isminde bir styled component yaratalım. Bütün a'lar target="\_blank" ise bunu Link'e taşıyabiliriz.
+
 ```javascript
 // const Link = styled.a``
 // const Link = styled.a.attrs()``
@@ -202,20 +215,20 @@ const MyApp = () => {
             <!--  Link'te target prop'unu yazmaya gerek kalmadı. -->
             <Link href="www.gooogle.com">
                 Link to google
-            </Link> 
+            </Link>
         </>
     )
 }
 
 ```
 
+Bir styled component'in tagged template literal içerisinde **>{}** kullanarak her türlü javascript kodunu yazabiliriz.
 
-Bir styled component'in tagged template literal içerisinde **${}** kullanarak her türlü javascript kodunu yazabiliriz.
 ```javascript
 const PaginationWrapper = styled.div`
   display: flex;
   width: 100%;
-  justify-content: ${ props =>
+  justify-content: >{ props =>
     if (page === "first") return "flex-end"
     else if (page === "middle") return "space-between"
     else return "flex-start"
@@ -234,18 +247,21 @@ const MyPaginationComponent = () => {
 ```
 
 ## Extending the styled component
-Bir styled component'i ```styled() constructor``` ile inherit ederek başka bir styled component yaratabiliriz. Yeni özellikler ekleyerek ya da mevcut özellikleri override yaparak extend edebiliriz.
+
+Bir styled component'i `styled() constructor` ile inherit ederek başka bir styled component yaratabiliriz. Yeni özellikler ekleyerek ya da mevcut özellikleri override yaparak extend edebiliriz.
+
 ```javascript
 // App.js
 const SuperStyledButton = styled(StyledButton)`
   font-size: 2.5rem;
-  color: ${props => props.primary ? "red" : "#fff"}; 
-`
+  color: >{props => props.primary ? "red" : "#fff"}; 
+`;
 ```
 
 ## Theming with styled-component
 
 Öncelikle bütün projeyi ya da web application'ı etkilemesini istediğimiz css'yi yaratalım. (css reset olayı). Styled component paketi bunun için **createGlobalStyle** fonksiyonu sağlamaktadır.
+
 ```javascript
 // GlobalStyle.js
 import { createGlobalStyle } from "styled-components"
@@ -275,33 +291,34 @@ ReactDOM.render (
 ```
 
 Styled Components paketi bize bir **Theme Provider** sunmaktadır. Theme Provider, bir react context API sağlamakta ve theme objesini etki alanındaki tüm componentlere ulaştırmaktadır. Dolayısıyla örneğin **HeaderText** componenti **theme** bilgisine ulaşabilmektedir.
+
 ```javascript
 // App.js
-import React from "react"
-import { ThemeProvider } from "styled-components"
-import Wrapper from "./components/Wrapper"
-import HeaderText from "./components/HeaderText"
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import Wrapper from "./components/Wrapper";
+import HeaderText from "./components/HeaderText";
 const theme = {
-    font: "calibri"
-}
+  font: "calibri",
+};
 export default () => {
-    <ThemeProvider theme={theme}>
-        <Wrapper>
-            <HeaderText>I am the Header</HeaderText>
-            <p>My Name is {name}</p>
-        </Wrapper>
-    </ThemeProvider>
-}
+  <ThemeProvider theme={theme}>
+    <Wrapper>
+      <HeaderText>I am the Header</HeaderText>
+      <p>My Name is {name}</p>
+    </Wrapper>
+  </ThemeProvider>;
+};
 
 // HeaderText.js
-import styled from "styled-components"
+import styled from "styled-components";
 const HeaderText = styled.h1`
-  font-family: ${props => props.theme.font};
-`
+  font-family: >{props => props.theme.font};
+`;
 ```
 
-
 Theme objesini başka bir dosyada oluşturup import edebiliriz.
+
 ```javascript
 // theme.js
 export default {
@@ -337,75 +354,78 @@ export default () => {
 // HeaderText.js, forexample
 import styled from "styled-components"
 const HeaderText = styled.h1`
-  color: ${props => props.theme.colors.dark};
-  @media ${props => props.theme.mediaQueries["below-768"]} {  // dash olduğu için []
-    color: ${props => props.theme.colors.light};
+  color: >{props => props.theme.colors.dark};
+  @media >{props => props.theme.mediaQueries["below-768"]} {  // dash olduğu için []
+    color: >{props => props.theme.colors.light};
   }
 `
 
 ```
 
-+ Birden fazla **theme** objesi yaratabiliriz. Theme objesinin içerisinde css attribute şeklinde key'ler kullanmak zorunda değiliz. ThemeProvider'ın sağladığı theme propunu ilgili styled component içinde ```props.theme.anyKey``` şeklinde karşılamamız gerekir.
-+ Birden fazla ve farklı theme propu kullanan **Theme Provider** kullanabiliriz. Theme Provider sadece kapsadığı componentlerde geçerlidir. **Hatta ThemeProvider'lar nested bile olabilir.**
+- Birden fazla **theme** objesi yaratabiliriz. Theme objesinin içerisinde css attribute şeklinde key'ler kullanmak zorunda değiliz. ThemeProvider'ın sağladığı theme propunu ilgili styled component içinde `props.theme.anyKey` şeklinde karşılamamız gerekir.
+- Birden fazla ve farklı theme propu kullanan **Theme Provider** kullanabiliriz. Theme Provider sadece kapsadığı componentlerde geçerlidir. **Hatta ThemeProvider'lar nested bile olabilir.**
+
 ```javascript
 // App.js
-import React from "react"
-import { ThemeProvider } from "styled-components"
-import Wrapper from "./components/Wrapper"
-import HeaderText from "./components/HeaderText"
-const theme1 = { anyKey: "calibri" }
-const theme2 = { anyKey: "arial" }
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import Wrapper from "./components/Wrapper";
+import HeaderText from "./components/HeaderText";
+const theme1 = { anyKey: "calibri" };
+const theme2 = { anyKey: "arial" };
 export default () => {
-    <Wrapper>
-        <ThemeProvider theme={theme1}>
-            <HeaderText>I am the Header</HeaderText>
-            <p>My Name is {name}</p>
-        </ThemeProvider>
-        <ThemeProvider theme={theme2}>
-            <HeaderText font="arial">I am the Header</HeaderText>
-            <p>My Name is {name}</p>
-        </ThemeProvider>
-    </Wrapper>
-}
+  <Wrapper>
+    <ThemeProvider theme={theme1}>
+      <HeaderText>I am the Header</HeaderText>
+      <p>My Name is {name}</p>
+    </ThemeProvider>
+    <ThemeProvider theme={theme2}>
+      <HeaderText font="arial">I am the Header</HeaderText>
+      <p>My Name is {name}</p>
+    </ThemeProvider>
+  </Wrapper>;
+};
 // HeaderText.js
-import styled from "styled-components"
+import styled from "styled-components";
 const HeaderText = styled.h1`
-  font-family: ${props => props.font ? props.font : props.theme.anyKey};
-`
+  font-family: >{props => props.font ? props.font : props.theme.anyKey};
+`;
 ```
 
-**defaultProps** ile styled componente *default theme* atayabiliriz. Örneğin aşağıdaki buton, *ThemeProvider kapsama alanında ise* provider'ın sağladığı theme'den, *kapsama alanında değilse* defaultProps'un sağladığı theme'den bilgileri alacaktır.
+**defaultProps** ile styled componente _default theme_ atayabiliriz. Örneğin aşağıdaki buton, _ThemeProvider kapsama alanında ise_ provider'ın sağladığı theme'den, _kapsama alanında değilse_ defaultProps'un sağladığı theme'den bilgileri alacaktır.
+
 ```javascript
 const Button = styled.button`
   font-size: 1em;
-  color: ${props => props.theme.main};
-  border: 2px solid ${props => props.theme.main};
+  color: >{props => props.theme.main};
+  border: 2px solid >{props => props.theme.main};
 `;
 Button.defaultProps = {
   theme: {
-    main: "palevioletred"
-  }
-}
+    main: "palevioletred",
+  },
+};
 ```
 
-ThemeProvider'ın theme propuna bir fonksiyon da atayabiliriz. Örneğin aşağıda Theme objesini alıp içindeki key value parametrelerini yer değiştiren *invertTheme* adında bir fonksiyon tanımlanmıştır. Ayrıca ThemeProvider için nested bir örnek sunulmuştur.
+ThemeProvider'ın theme propuna bir fonksiyon da atayabiliriz. Örneğin aşağıda Theme objesini alıp içindeki key value parametrelerini yer değiştiren _invertTheme_ adında bir fonksiyon tanımlanmıştır. Ayrıca ThemeProvider için nested bir örnek sunulmuştur.
+
 ```javascript
 const Button = styled.button`
-  color: ${props => props.theme.fg};
-  border: 2px solid ${props => props.theme.fg};
-  background: ${props => props.theme.bg};
+  color: >{props => props.theme.fg};
+  border: 2px solid >{props => props.theme.fg};
+  background: >{props => props.theme.bg};
   font-size: 1em;
 `;
 
 const theme = {
   fg: "palevioletred",
-  bg: "white"
+  bg: "white",
 };
 
 // key value parametrelerini yer değiştiren fonksiyon
 const invertTheme = ({ fg, bg }) => ({
   fg: bg,
-  bg: fg
+  bg: fg,
 });
 
 render(
@@ -421,9 +441,11 @@ render(
 );
 ```
 
-ThemeProvider'ın sağladığı theme propuna *styled component dışından da* ulaşabiliriz. Bunun için iki yöntem vardır: 
-+ **1)** styled-components paketinin sağladığı *withTheme* ile 
-+ **2)** react'ın kendi sağladığı *useContext* hook kullanarak styled-components paketinin sağladığı *ThemeContext* ile
+ThemeProvider'ın sağladığı theme propuna _styled component dışından da_ ulaşabiliriz. Bunun için iki yöntem vardır:
+
+- **1)** styled-components paketinin sağladığı _withTheme_ ile
+- **2)** react'ın kendi sağladığı _useContext_ hook kullanarak styled-components paketinin sağladığı _ThemeContext_ ile
+
 ```javascript
 // class component
 import { withTheme } from 'styled-components';
@@ -456,17 +478,18 @@ const MyComponent = () => {
 
 **The theme prop**
 
-Theme objesini ThemeProvider kullanmadan da ilgili styled componente theme propu ile gönderebiliyoruz. Theme propu bir object kabul ettiği için çift curly brace kullandığımıza dikkat edelim. **theme={{ key: value, ...}}** Ayrıca ThemeProvider'ın kapsama alanındaki styled component'in theme propu ile ThemeProvider'ın sağladığı theme üzerine override yazılabilir. 
+Theme objesini ThemeProvider kullanmadan da ilgili styled componente theme propu ile gönderebiliyoruz. Theme propu bir object kabul ettiği için çift curly brace kullandığımıza dikkat edelim. **theme={{ key: value, ...}}** Ayrıca ThemeProvider'ın kapsama alanındaki styled component'in theme propu ile ThemeProvider'ın sağladığı theme üzerine override yazılabilir.
+
 ```javascript
 // Define our button
 const Button = styled.button`
   font-size: 1em;
-  color: ${props => props.theme.main};
-  border: 2px solid ${props => props.theme.main};
+  color: >{props => props.theme.main};
+  border: 2px solid >{props => props.theme.main};
 `;
 
 const theme = {
-  main: "mediumseagreen"
+  main: "mediumseagreen",
 };
 
 render(
