@@ -18,6 +18,13 @@
 > git log --pretty=oneline
 > git log --oneline
 
+### add to stage partially
+
+https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git
+
+> git add --patch <filename>
+> git add -p <filename>
+
 ### to see remote repo address
 
 > git remote -v
@@ -80,10 +87,21 @@ _now we are in a state known as "detached HEAD", don't make any new commit here_
 ### Add an alias with command parameters in global
 
 > git config --global alias.amend 'commit --amend --no-edit'
+> git config --global alias.line 'log --oneline'
 
 Then, use like below:
 
 > git amend
+
+### to change the default editor
+
+> git config --global core.editor "code --wait"
+
+### to change the last commit message if it is already puged into github
+
+> git commit --amend
+> (vscode will be opened, make the changes and approve it, then...)
+> git push --force-with-lease
 
 ### git reset SOFT, MIXED, HARD
 
@@ -261,9 +279,9 @@ https://dev.to/ademola_isr/how-to-gitignore-untrack-files-already-pushed-to-gith
 
 ## Step 2
 
-### Remove all the files in the repository.
+### Remove the file in the repository index.
 
-> git rm -r --cached <file> > _adding -cached allow us to remove the files from the index. Our files are still present_
+> git rm -r --cached <file> > _adding -cached allow us to remove the file from the index. Our files are still present_
 
 ## Step 3
 
