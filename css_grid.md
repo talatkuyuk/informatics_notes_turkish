@@ -4,26 +4,24 @@ Grid CSS ile Layout'u dizayn etmek, Flexbox ile Layout içindeki parçaları diz
 
 ## CSS Grid Terminolojisi
 
-``Grid Container``: Layout'u kapsayan bölge.
-``Grid Cell``: Grid Container içindeki her bir bölüm.
-``Grid Area``: Grid'in bir veya birden fazla ``Grid Cell`` içeren bölümü (kare veya diktörtgen bölge).
-``Grid Item``: ``Grid Container`` içindeki ``Grid Cell`` veya ``Grid Area`` içine yerleşen her bir ana parça.
-``Track``: Grid'in komple bir satırı veya sütunu.
-``Grid Gap``: Grid Item'lar arsındaki boşluklar.
+`Grid Container`: Layout'u kapsayan bölge.
+`Grid Cell`: Grid Container içindeki her bir bölüm.
+`Grid Area`: Grid'in bir veya birden fazla `Grid Cell` içeren bölümü (kare veya diktörtgen bölge).
+`Grid Item`: `Grid Container` içindeki `Grid Cell` veya `Grid Area` içine yerleşen her bir ana parça.
+`Track`: Grid'in komple bir satırı veya sütunu.
+`Grid Gap`: Grid Item'lar arsındaki boşluklar.
 
-Grid Item diğer bir Grid Item üzerine overlap edebilir. 
+Grid Item diğer bir Grid Item üzerine overlap edebilir.
 Nested (içiçe) grid layout oluşturulabilir. Yani bir grid item aynı zamanda bir <display: grid;> olabilir.
 
-``explicit grid``: Grid satır ve sütunları kendimiz tanımlıyoruz.
-``implicit grid``: Grid satır ve sütunları tanımlamıyoruz, grid kendisi dinamik olarak hallediyor.
-
+`explicit grid`: Grid satır ve sütunları kendimiz tanımlıyoruz.
+`implicit grid`: Grid satır ve sütunları tanımlamıyoruz, grid kendisi dinamik olarak hallediyor.
 
 ## Grid - Flexbox Arasındaki Farklar
 
-+ Flexbox bir boyutludur, Grid ise iki boyutludur.
+- Flexbox bir boyutludur, Grid ise iki boyutludur.
 
 ## Grid CSS'ye özel CSS komutları
-
 
 ```css
 .grid_container{
@@ -32,8 +30,8 @@ Nested (içiçe) grid layout oluşturulabilir. Yani bir grid item aynı zamanda 
   grid-template-columns: 200px 100px;
   grid-template-columns: 2fr 1fr;
   grid-template-columns: 200px 2fr 1fr; // available space fr'lara göre dağıtılır.
-  grid-template-columns: 200px auto 100px; /* auto kullanıldığında grid item'ın yerleşebileceği kadar yer açılır. Dolayısıyla auto satır genişliği bu sütuna denk gelen grid item'lardan en geniş olanına göre şekillenir.*/ 
-  grid-template-columns: repeat(4, 100px);
+  grid-template-columns: 200px auto 100px; /* auto kullanıldığında grid item'ın yerleşebileceği kadar yer açılır. Dolayısıyla auto satır genişliği bu sütuna denk gelen grid item'lardan en geniş olanına göre şekillenir.*/
+  grid-template-columns: repeat(4, 100px);f
   grid-template-columns: auto repeat(4, 100px);
   grid-template-columns: fit-content(300px) repeat(4, 100px); /* fit-content: içeriği grid cell'e göre ayarlıyor, örneğin kelimeyi bir alta kaydırıyor, verilen genişli değerinin dışına çıkmıyor. Genişlik büyürse auto gibi davranıp bu sütun genişliği de büyüyor.*/
   grid-template-columns: repeat(4, 1fr 2fr); // every other item takes up twice
@@ -42,7 +40,7 @@ Nested (içiçe) grid layout oluşturulabilir. Yani bir grid item aynı zamanda 
   grid-template-columns: 2fr repeat(5, 1fr) 2fr;
   grid-auto-columns: 250px; //grid-auto-flow: column; ise yeni yarattığı sütunlar için bu dikkate alınır
 
-  /* grid-line'lara isim de verilebilir. Hatta aynı grid line birden fazla isimle de isimlendirilebilir. */ 
+  /* grid-line'lara isim de verilebilir. Hatta aynı grid line birden fazla isimle de isimlendirilebilir. */
   grid-template-columns: [site-left] 200px [content-left] 2fr [content-right] 1fr [site-right];
   grid-template-rows: [content-top] repeat(10, 1fr) [content-bottom];
   grid-template-columns: [sitebar-left] 200px [sitebar-right content-left] 2fr [content-right x-start] 1fr [x-end];
@@ -53,7 +51,7 @@ Nested (içiçe) grid layout oluşturulabilir. Yani bir grid item aynı zamanda 
   grid-template-columns: repeat(auto-fit, 300px);
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  
+
 
   grid-template-rows: 200px 150px; // birinci ve ikinci row tanımlanmış
   grid-template-rows: 60px 1fr 60px; // raw'da fr kullanılırsa explicit olarak height belirtmemiz gerekir ki ona göre dolmayan kısnı fr'a tahsis edebilsin.
@@ -63,9 +61,9 @@ Nested (içiçe) grid layout oluşturulabilir. Yani bir grid item aynı zamanda 
 
   vaya tek satırda
   grid-template: 200px 150px / 2fr repeat(5, 1fr) 2fr; // önce raw sonra column templateler yazılabilir.
-  
+
   /* Grid sisteminde yerleştirme default değeri raw'dur, yani önce bir satır tamamlanır sonra diğer satıra geçilir. column dersek grid item'ları önce sütun tamamlanarak yerleştirilir, yani satır sayısı dolmuşsa yeni column yaratarak yerleştirilir. dense ise grid itemların en az boşluk kalacak şekilde sırasını değiştirerek otomatik yerleştirilmesi için kullanılır. */
-  grid-auto-flow: raw | column | dense; // 
+  grid-auto-flow: raw | column | dense; //
 
   grid-row-gap: 20px;
   grid-column-gap: 10px;
@@ -86,9 +84,9 @@ Nested (içiçe) grid layout oluşturulabilir. Yani bir grid item aynı zamanda 
     / %20 3fr 1fr
 
   /* @ justify- works in row axis - bir satır içinde / satır boyunca yerleştirme yapar
-     @ align- works in column axis - bir sütun içinde / sütun boyunca yerleştirme yapar 
+     @ align- works in column axis - bir sütun içinde / sütun boyunca yerleştirme yapar
 
-     @ align vermek için bir yüksekliğin belirli olması gerekmektedir 
+     @ align vermek için bir yüksekliğin belirli olması gerekmektedir
 
      @ -content ayarında grid item'lar bir bütün olarak değerlendirilir ve grid yapısı viewport/container içinde belirtilen şekilde yerleştirilir. Grid yapısı kendisini barındıran container'dan bir şekilde küçük ise bu işe yarar, aksi takdirde fraction'larla örneğin zaten tüm alan kullanılıyorsa bu yerleştirmenin bir anlamı kalmaz, gerek yoktur.
      @ -items ayarında her bir grid item'ın grid cell içinde belirli bir düzene göre yerleştirilmesi söz konusudur.
@@ -99,7 +97,7 @@ Nested (içiçe) grid layout oluşturulabilir. Yani bir grid item aynı zamanda 
   justify-content: *start* | end | center | stretch | space-around | space-between | space-evenly;
   align-content: *start* | end | center | stretch | space-around | space-between | space-evenly;
 
-  place-content: center / end ; // <align-content> / <justify-content> 
+  place-content: center / end ; // <align-content> / <justify-content>
   place-content: center; // both <align-content> and <justify-content> are center
 
   justify-items: start | end | center | *stretch*;
@@ -137,7 +135,7 @@ Nested (içiçe) grid layout oluşturulabilir. Yani bir grid item aynı zamanda 
   grid-column: span 2 / 5; // 5'nci sütun çizgisinde bitecek şekilde iki bölüm kapsar.
   grid-column: 2 / span 2; // 2'nci sütun çizgisinden başlayarak iki bölüm kapsar.
 
-  /* grid-line'lara isim verilmiş ise grid item'ları bunları refere ederek de yerleştirebiliriz. */ 
+  /* grid-line'lara isim verilmiş ise grid item'ları bunları refere ederek de yerleştirebiliriz. */
   grid-column: content-left /  content-right;
   grid-column: site-left /  span 2;
   grid-row: content-top /  span 2;
@@ -182,24 +180,30 @@ Nested (içiçe) grid layout oluşturulabilir. Yani bir grid item aynı zamanda 
 }
 ```
 
-
 Nested grid ile yapılmış resposive bir grid yapısı örneği;
+
 ```html
 <body>
-    <div class="albums">
-        <div class="album">
-            <img src="https://source.unsplash.com/random/300x300?v=1" class="album__artwork">
-            <div class="album__details">
-                <h2>Album Title</h2>
-                <p class="album__artist">Artist Name</p>
-                <p class="album_desc">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo voluptas odit blanditiis enim ducimus quo molestiae explicabo officiis possimus laboriosam.
-                </p>
-            </div>
-        </div>
+  <div class="albums">
+    <div class="album">
+      <img
+        src="https://source.unsplash.com/random/300x300?v=1"
+        class="album__artwork"
+      />
+      <div class="album__details">
+        <h2>Album Title</h2>
+        <p class="album__artist">Artist Name</p>
+        <p class="album_desc">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo
+          voluptas odit blanditiis enim ducimus quo molestiae explicabo officiis
+          possimus laboriosam.
+        </p>
+      </div>
     </div>
+  </div>
 </body>
 ```
+
 ```css
 <style>
   .albums {
