@@ -88,6 +88,7 @@ _now we are in a state known as "detached HEAD", don't make any new commit here_
 
 > git config --global alias.amend 'commit --amend --no-edit'
 > git config --global alias.line 'log --oneline'
+> git config --global alias.pretty 'log --pretty=oneline'
 
 Then, use like below:
 
@@ -97,7 +98,7 @@ Then, use like below:
 
 > git config --global core.editor "code --wait"
 
-### to change the last commit message if it is already puged into github
+### to change the last commit message if it is already pushed to github
 
 > git commit --amend
 > (vscode will be opened, make the changes and approve it, then...)
@@ -276,6 +277,11 @@ https://dev.to/ademola_isr/how-to-gitignore-untrack-files-already-pushed-to-gith
 
 > git add .
 > git commit -m "message"
+
+or
+
+> git status
+> to see the branch is up to date with origin
 
 ## Step 2
 
