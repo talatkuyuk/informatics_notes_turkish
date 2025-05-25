@@ -27,6 +27,25 @@ https://www.gencayyildiz.com/blog/node-js-cors-paketiyle-access-control-allow-or
 > npm install
 ```
 
+## İndirilen bir projede package.json'da belirtilen paketlerin tümünü ancak projede listelenen versiyonları aynen kurmak için
+
+```powershell
+> npm ci
+```
+
+## gerçekte install edilen ve node_modules içine yüklenen paket sürümlerini görmek için (bu sayede package.json'da belirtilen paketlerin sürümlerindeki hatalı versiyonlar görülebilir )
+
+```powershell
+> npm ls --depth=0
+```
+
+## projedeki bir dependency'nin hangi dependency'e bağlı olduğunu anlamak
+
+```powershell
+> npm ls paket_ismi
+> npm ls paket_ismi --all
+```
+
 ## paketlerin yeni versiyonları çıkanlarını görmek için
 
 ```powershell
